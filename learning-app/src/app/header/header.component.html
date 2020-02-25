@@ -7,8 +7,9 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">Shopping List</a></li>
+                <!-- Pass string identifying navigation to app component via navClick function-->
+                <li><a href="#" (click)="navClick('recipes')">Recipes</a></li>
+                <li><a href="#" (click)="navClick('shoppingList')">Shopping List</a></li>
             </ul>  
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
