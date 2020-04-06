@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {Ingredients} from '../../shared/Ingredients.model';
+import { ShoppingListService } from '../shopping-list.service';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
@@ -10,10 +11,9 @@ export class ShoppingEditComponent implements OnInit {
   // View Child allows you to view local reference from HTML
   @ViewChild('nameInput', {static:false}) nameInputRef: ElementRef;
   @ViewChild('amountInput', {static:false}) amountInputRef: ElementRef;
-  // Event emitter to shopping list with ingredient object
-  @Output() ingredientAdded = new EventEmitter<Ingredients>();
 
-  constructor() { }
+
+  constructor(private shoppingListService : ShoppingListService) { }
 
   ngOnInit() {
   }
@@ -24,8 +24,7 @@ export class ShoppingEditComponent implements OnInit {
     const newIngredient = new Ingredients(
       this.nameInputRef.nativeElement.value, 
       this.amountInputRef.nativeElement.value);
-
-    this.ingredientAdded.emit(newIngredient);
+    this.shoppingListService.addIngredient(newIngredient);
   }
 
 }
