@@ -7,10 +7,5 @@ import {FormsModule} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  displaySection = "recipes";
 
-  // processes @Output from header component
-  onNavigate(displaySection: string) {
-    this.displaySection = displaySection;
-  }
 }

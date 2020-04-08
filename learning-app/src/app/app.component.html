@@ -1,11 +1,9 @@
 <!-- Listen to event displaySection from header component and pass $event variable to onNavigate()-->
-<app-header (displaySection)="onNavigate($event)"></app-header>
+<app-header></app-header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <!-- displaySection variable determines what is rendered on home page -->
-            <app-recipes *ngIf="displaySection === 'recipes'"></app-recipes>
-            <app-shopping-list *ngIf="displaySection === 'shoppingList'"></app-shopping-list>
+           <router-outlet></router-outlet>
         </div>
     </div>
 </div>
